@@ -40,7 +40,7 @@ async function media(){
     cityElems.map(cityElem => doCity(cityElem.innerHTML, data => data.main.temp)) //cityElem e data sono i due parametri passati alla funzione
   ); //attendi l'esecuzione di un numero di casi in parallelo
   let somma = temps.reduce((somma, temp) => temp + somma);
-  document.getElementById("media").innerText = somma / cityElems.length;
+  document.getElementById("media").innerText = "la temperatura media è " +  (somma / cityElems.length);
 }
 //////////////////////////////
 
@@ -51,5 +51,5 @@ async function massimo(){
     cityElems.map(cityElem => doCity(cityElem.innerHTML, data => data.main.temp_max))
   ); //il metodo map esegue una funzione per ogni elemento dell'array cityElems
   let max = temps.reduce((max,temp) => Math.max(temp, max));
-  document.getElementById("massimo").innerText = max;
+  document.getElementById("massimo").innerText =  max;
 }
