@@ -22,7 +22,7 @@ function doCity(city, callback){
 
   let promise = fetch(URL + city)
     .then(response => response.json(), error => alert(error))
-    .then(data => callback(data));
+    .then(data => {console.log(data); return callback(data);});
   return promise;
 }
 
@@ -42,9 +42,6 @@ async function media(){
   let somma = temps.reduce((somma, temp) => temp + somma);
   document.getElementById("media").innerText = "la temperatura media è " +  (somma / cityElems.length);
 }
-//////////////////////////////
-
-//////////////////////////////
 
 async function massimo(){
   let temps = await Promise.all(
